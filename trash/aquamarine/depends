@@ -1,0 +1,8 @@
+hyprwayland-scanner
+hyprutils
+hwdata
+libinput
+libdisplay-info
+mesa
+seatd
+
