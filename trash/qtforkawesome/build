@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+ cmake \
+    -G Ninja \
+    -DCMAKE_BUILD_TYPE:STRING='Release' \
+    -DCMAKE_INSTALL_PREFIX:PATH='/usr' \
+    -DCONFIGURATION_DISPLAY_NAME="" \
+    -DQT_PACKAGE_PREFIX:STRING='Qt6' \
+    -DBUILTIN_TRANSLATIONS:BOOL=OFF \
+    -DBUILD_SHARED_LIBS:BOOL=OFF \
+    -DFORK_AWESOME_FONT_FILE="$PWD/120/fonts/forkawesome-webfont.woff2" \
+    -DFORK_AWESOME_ICON_DEFINITIONS="$PWD/120/src/icons/icons.yml" \
+    .
+ninja
+DESTDIR=$1 ninja install
