@@ -1,0 +1,6 @@
+libevdev
+systemd
+git make
+libxkbcommon make
+meson make
+
