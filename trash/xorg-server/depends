@@ -24,4 +24,5 @@ pkgconf make
 xkeyboard-config
 xtrans make
 xinput
+xf86-input-libinput optional
 zlib-ng
