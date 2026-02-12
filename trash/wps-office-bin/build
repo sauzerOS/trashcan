@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+# extract deb
+ar x wps-office_$2.XA_amd64.deb
+tar xvf data.tar.xz
+
+cp -a {opt,usr} $1/
+
+# Fix for icu>=71.1
+rm $1/opt/kingsoft/wps-office/office6/libstdc++.so*
+# Use system libjpeg
+rm $1/opt/kingsoft/wps-office/office6/libjpeg.so*
