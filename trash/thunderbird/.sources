@@ -1,0 +1,4 @@
+https://archive.mozilla.org/pub/thunderbird/releases/${version}/source/thunderbird-${version}.source.tar.xz
+files/mozconfig
+files/thunderbird.desktop
+files/0024-bgo-969412-glibc-2.43.patch

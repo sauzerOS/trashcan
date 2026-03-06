@@ -1,15 +1,41 @@
 #!/bin/sh -e
 
-sed -e '1i\#![warn(dangerous_implicit_autorefs)]\r' \
-    -i third_party/rust/allocator-api2/src/stable/vec/mod.rs
+cd thunderbird-$2
+mv ../mozconfig .
+
+# glibc 2.43 fix
+patch -Np1 -i ../0024-bgo-969412-glibc-2.43.patch
+
+# wasi fix
+sed -i 's/split_triplet("wasm32-wasi"/split_triplet("wasm32-wasip1"/' build/moz.configure/toolchain.configure
+
+# Make icon transparent
+sed -i '/^<rect/d' comm/mail/branding/thunderbird/TB-symbolic.svg
 
 export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
 export MOZBUILD_STATE_PATH=$(pwd)/mozbuild
 export CXX=g++
+export MOZ_NOSPAM=1
 
+# Set remoting name to fix the missing wayland icon
+export MOZ_APP_REMOTINGNAME=org.mozilla.Thunderbird
+
+# malloc_usable_size is used in various parts of the codebase
+CFLAGS="${CFLAGS/_FORTIFY_SOURCE=3/_FORTIFY_SOURCE=2}"
+CFLAGS="${CFLAGS/-fexceptions/}"
+CXXFLAGS="${CXXFLAGS/_FORTIFY_SOURCE=3/_FORTIFY_SOURCE=2}"
+CXXFLAGS="${CXXFLAGS/-fexceptions/}"
+
+./mach configure
 ./mach build
-MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none DESTDIR=$1 ./mach install
+DESTDIR=$1 ./mach install
 
 # Desktop file
-mkdir -p $1/usr/share/applications
-cp thunderbird.desktop $1/usr/share/applications/
+install -Dm 644 ../thunderbird.desktop $1/usr/share/applications/thunderbird.desktop
+
+for i in 16 22 24 32 48 64 128 256; do
+install -Dm644 comm/mail/branding/thunderbird/default${i}.png \
+  "$1/usr/share/icons/hicolor/${i}x${i}/apps/org.mozilla.Thunderbird.png"
+done
+install -Dm644 comm/mail/branding/thunderbird/TB-symbolic.svg \
+  "$1/usr/share/icons/hicolor/symbolic/apps/thunderbird-symbolic.svg"

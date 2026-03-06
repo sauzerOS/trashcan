@@ -13,4 +13,7 @@ nss
 nodejs
 pulseaudio
 startup-notification
-unzip
+unzip make
+wasi-compiler-rt make
+wasi-libc make
+wasi-libc++ make
