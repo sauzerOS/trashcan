@@ -2,12 +2,21 @@
 
 cd thunderbird-$2
 mv ../mozconfig .
+mv ../google-api-key .
 
 # glibc 2.43 fix
 patch -Np1 -i ../0024-bgo-969412-glibc-2.43.patch
 
+# rust modules fix
+patch -Np1 -i ../0023-bmo-2006630-remove-gitmodules-and-gitattributes-from-cargo-checksum-files.patch
 # wasi fix
 sed -i 's/split_triplet("wasm32-wasi"/split_triplet("wasm32-wasip1"/' build/moz.configure/toolchain.configure
+
+# Set BOTAN_VERSION from system-botan
+_botan_ver=$(pkg-config --modversion botan-3)
+sed -i "s|crypto_backend_version = CONFIG\[\"BOTAN_VERSION\"\]|crypto_backend_version = CONFIG[\"BOTAN_VERSION\"] or \"${_botan_ver}\"|" \
+comm/third_party/rnp/moz.build
+
 
 # Make icon transparent
 sed -i '/^<rect/d' comm/mail/branding/thunderbird/TB-symbolic.svg
