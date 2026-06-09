@@ -1,13 +1,13 @@
 bzip2
 freetype
 libglvnd
-libX11
-libXau
-libXdamage
-libXext
-libXfixes
-libXfont2
-libXxf86vm
+libx11
+libxau
+libxdamage
+libxext
+libxfixes
+libxfont2
+libxxf86vm
 libdrm
 libepoxy
 libfontenc
@@ -24,5 +24,4 @@ pkgconf make
 xkeyboard-config
 xtrans make
 xinput
-xf86-input-libinput optional
 zlib-ng
