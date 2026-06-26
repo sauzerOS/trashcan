@@ -1,0 +1,12 @@
+alsa-lib
+cairo
+glib
+glibc
+gstreamer
+gcc-libs
+libogg
+libtheora
+libvorbis
+opus
+pango 
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# enable systemd services
+systemctl enable nvidia-resume nvidia-hibernate nvidia-suspend nvidia-persistenced

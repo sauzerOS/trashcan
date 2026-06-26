@@ -1,0 +1,45 @@
+bzip2
+cairo
+curl
+faad2
+fdk-aac
+fluidsynth
+glib
+glibc
+gst-plugins-base
+gstreamer
+json-glib
+libaom
+libass
+libde265
+libfreeaptx
+gcc-libs
+liblc3
+libldac
+librsvg
+libsndfile
+libwebp
+libxml2
+little-cms
+nettle
+openal
+openh264
+openjpeg
+openssl
+opus
+pango
+qrencode
+sbc
+spandsp
+webrtc-audio-processing-1
+x265
+zxing-cpp
+libdrm make
+libusb make
+libva make
+libx11 make
+libxcb make
+libxkbcommon make
+meson make
+vulkan-icd-loader make
+wayland make

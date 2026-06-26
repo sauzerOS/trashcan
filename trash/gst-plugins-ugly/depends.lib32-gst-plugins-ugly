@@ -1,0 +1,8 @@
+gstreamer
+gst-plugins-base
+gst-plugins-good
+gst-plugins-bad
+lib32-gstreamer
+lib32-gst-plugins-base
+lib32-gst-plugins-good
+lib32-gst-plugins-bad

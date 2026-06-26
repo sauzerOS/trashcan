@@ -1,0 +1,9 @@
+gstreamer
+gst-plugins-base
+gst-plugins-good
+gst-plugins-bad
+meson make
+lib32-gstreamer make
+lib32-gst-plugins-base make
+lib32-gst-plugins-good make
+lib32-gst-plugins-bad make

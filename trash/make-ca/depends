@@ -1,0 +1,7 @@
+coreutils
+findutils
+gawk
+grep
+nss
+p11-kit
+sed

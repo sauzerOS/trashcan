@@ -1,0 +1,14 @@
+eglexternalplatform
+egl-gbm
+egl-wayland
+egl-x11
+libglvnd
+libxau
+libxcb
+libx11
+libxext
+libxv
+xcb-proto
+xorgproto
+xorg-util-macros
+xtrans
