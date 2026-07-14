@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 #fix build with latest Xorg
 grep -rl slave | xargs sed -i s/slave/secondary/

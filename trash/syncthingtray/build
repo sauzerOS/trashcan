@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 install -d $1/usr/share/icons/hicolor/scalable/apps/
 install -d $1/usr/share/applications/

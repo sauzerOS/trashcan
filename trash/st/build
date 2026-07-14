@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Install terminfo to right location.
 export TERMINFO="$1/usr/share/terminfo"

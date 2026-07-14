@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 tools=('as10k1' 'hwmixvolume' 'hdajackretask' 'hda-verb' 'hdajacksensetest')
 

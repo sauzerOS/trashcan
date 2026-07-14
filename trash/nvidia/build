@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 sh NVIDIA-Linux-x86_64-$2.run --extract-only
 cd NVIDIA-Linux-x86_64-$2

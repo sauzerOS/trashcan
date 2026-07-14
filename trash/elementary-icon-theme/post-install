@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 gtk-update-icon-cache -f /usr/share/icons/elementary-xfce
 gtk-update-icon-cache -f /usr/share/icons/elementary-xfce-dark

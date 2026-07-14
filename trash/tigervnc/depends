@@ -1,0 +1,8 @@
+fltk
+gnutls
+libgcrypt
+libjpeg-turbo
+pixman
+xorg-font-util
+xauth
+cmake make

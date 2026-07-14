@@ -20,7 +20,7 @@ librsvg
 libsndfile
 libwebp
 libxml2
-little-cms
+lcms2
 nettle
 openal
 openh264

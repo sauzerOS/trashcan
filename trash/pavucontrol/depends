@@ -1,0 +1,12 @@
+gcc-libs
+glib
+glibc
+glibmm
+gtk
+gtkmm
+json-glib
+libcanberra
+libsigc++
+libpulse
+meson make
+

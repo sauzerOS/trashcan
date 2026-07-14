@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # extract deb
 ar x wps-office_$2.XA_amd64.deb

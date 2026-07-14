@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Disable stripping of binaries.
 # This breaks Go.
