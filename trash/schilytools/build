@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+sed -i 's|/opt/schily|/usr|g'           DEFAULTS/Defaults.linux
+sed -i 's|DEFINSGRP=.*|DEFINSGRP=root|' DEFAULTS/Defaults.linux
+sed -i 's|INSDIR=\s*sbin|INSDIR=bin|'   rscsi/Makefile
+
+export GMAKE_NOWARN=true
+# K&R C: GCC 14 made incompatible pointer types (inc/avoffset.c's
+# int handler() for signal()) an error, GCC 15 defaults to C23, where f()
+# takes no arguments. The schily makefiles compile with their own flags plus
+# COPTX; CFLAGS only reaches the configure checks, which should agree.
+SCHILY_COPTS="-std=gnu17 -fpermissive -fno-strict-aliasing"
+export CFLAGS="$CFLAGS $SCHILY_COPTS"
+
+make -j1 INS_BASE=/usr  \
+         DEFINSUSR=root \
+         DEFINSGRP=root \
+         COPTX="$SCHILY_COPTS" \
+         VERSION_OS="sauzerOS"
+
+GMAKE_NOWARN=true
+
+make DESTDIR=$1 INS_BASE=/usr    \
+     DEFINSUSR=root   \
+     DEFINSGRP=root   \
+     MANSUFF_LIB=3cdr \
+     COPTX="$SCHILY_COPTS" \
+     install
